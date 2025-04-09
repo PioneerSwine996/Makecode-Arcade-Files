@@ -1,0 +1,10 @@
+{
+    "mySongs.song1": {
+        "id": "mySongs.song1",
+        "data": "008c0004080200",
+        "dataEncoding": "base64",
+        "namespace": "mySongs.",
+        "mimeType": "application/mkcd-song",
+        "displayName": "mySong"
+    }
+}
