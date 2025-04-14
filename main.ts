@@ -1,16 +1,14 @@
-// ===================== CONSTANTS =====================
+// ===================== CONSTANTS ===================== \\ 
 const MAX_CHIPS = 5
 const SAFE_SPAWN_DISTANCE = 50
 
-// ===================== GLOBAL VARIABLES =====================
+// ===================== GLOBAL VARIABLES ===================== \\ 
 let player: Sprite = null
 let dataChips: Sprite[] = []
 let enemies: Sprite[] = []
 let difficulty: number = 1
 
-// ===================== FUNCTIONS =====================
-
-// Create player sprite with higher visibility
+// ===================== FUNCTIONS ===================== \\ 
 function createPlayerSprite(x: number, y: number) {
     player = sprites.create(img`
         . . f f f f . . 
@@ -46,12 +44,10 @@ function createPlayerSprite(x: number, y: number) {
     `], 200, true)
 }
 
-// Check sprite distance
 function distanceBetween(a: Sprite, b: Sprite): number {
     return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2)
 }
 
-// Spawn enemies safely
 function spawnEnemies(count: number) {
     enemies = []
     for (let i = 0; i < count; i++) {
@@ -85,7 +81,6 @@ function spawnEnemies(count: number) {
     }
 }
 
-// Spawn visible data chips
 function spawnChips(num: number) {
     dataChips = []
     for (let i = 0; i < num; i++) {
@@ -108,7 +103,6 @@ function allChipsCollected(): boolean {
     return dataChips.length == 0
 }
 
-// Ask for difficulty level
 function selectDifficulty() {
     let difficulty = game.askForNumber("Difficulty (1-5)?", 1)
     switch (difficulty) {
@@ -138,15 +132,14 @@ function selectDifficulty() {
     }
 }
 
-// Start level setup
 function startLevel() {
-    scene.setBackgroundColor(8) // Dark blue for visibility
+    scene.setBackgroundColor(8)
     spawnChips(MAX_CHIPS)
     spawnEnemies(difficulty + 1)
     music.playMelody("C5 B A G A B C5 C5 ", 120)
 }
 
-// ===================== EVENT HANDLERS =====================
+// ===================== EVENT HANDLERS ===================== \\ 
 
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (player, chip) {
     chip.destroy()
@@ -164,7 +157,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (player, enemy) 
     game.over(false, effects.melt)
 })
 
-// ===================== GAME START =====================
+// ===================== GAME START ===================== \\ 
 selectDifficulty()
 createPlayerSprite(80, 60)
 startLevel()
