@@ -7,6 +7,7 @@ let player: Sprite = null
 let dataChips: Sprite[] = []
 let enemies: Sprite[] = []
 let difficulty: number = 1
+let points: number = null
 
 // ===================== FUNCTIONS ===================== \\ 
 function createPlayerSprite(x: number, y: number) {
@@ -104,31 +105,37 @@ function allChipsCollected(): boolean {
 }
 
 function selectDifficulty() {
-    let difficulty = game.askForNumber("Difficulty (1-5)?", 1)
+    difficulty = game.askForNumber("Difficulty (1-5)?", 1)
     switch (difficulty) {
         case 1:
             difficulty = 1
+            points = 10
             game.splash("Easy Mode")
             break
         case 2:
             difficulty = 2
+            points = 20
             game.splash("Medium Mode")
             break
         case 3:
             difficulty = 3
+            points = 30
             game.splash("Hard Mode")
             break
         case 4:
             difficulty = 4
+            points = 40
             game.splash("Insane Mode")
             break
         case 5:
             difficulty = 5
+            points = 50
             game.splash("Nightmare Mode")
             break
         default:
             difficulty = 1
-            game.splash("Invalid input — Easy Mode set.")
+            points = 10
+            game.splash("Invalid input Easy Mode set.")
     }
 }
 
@@ -136,7 +143,7 @@ function startLevel() {
     scene.setBackgroundColor(8)
     spawnChips(MAX_CHIPS)
     spawnEnemies(difficulty + 1)
-    music.playMelody("C5 B A G A B C5 C5 ", 120)
+    // music.playMelody("C5 B A G A B C5 C5 ", 120)
 }
 
 // ===================== EVENT HANDLERS ===================== \\ 
@@ -144,7 +151,7 @@ function startLevel() {
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (player, chip) {
     chip.destroy()
     dataChips.removeElement(chip)
-    info.changeScoreBy(10)
+    info.changeScoreBy(points)
 
     if (allChipsCollected()) {
         difficulty += 1

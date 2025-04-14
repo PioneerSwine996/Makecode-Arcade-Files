@@ -1,0 +1,53 @@
+{
+    "myTiles.transparency16": {
+        "id": "myTiles.transparency16",
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "dataEncoding": "base64",
+        "namespace": "myTiles.",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true
+    },
+    "level1": {
+        "id": "level1",
+        "data": "MTAxMDAwMGMwMDE4MTkxOTE5MTkxOTE5MTkxOTE5MTkxOTE5MTkxOTFhMWYyMDFkMWQxZDFkMjAyMDIwMjAxZDFkMWQxZDIwMWIxZjFiMDIwMzAzMDQxZjIwMjAxYjBhMGMwYzBiMWYxYjFmMWIwNjA3MDEwNTFmMjAyMDFiMGUxMTEwMGQxZjFiMWYyMDFhMDkwODE4MjAxZDFkMjAxYTEyMTMxODIwMWIxZjIwMWIwOTA4MWYxYjAyMGIxZjFiMTIxMzFmMjAxYjFmMjAxYjA2MDUxZjFiMDkxNzFmMWIwZTBkMWYyMDFiMWYyMDIwMTkxOTIwMWMwOTE3MWUyMDE5MTkyMDIwMWIxZjIwMjAyMDIwMWIwMjE2MGYwYjFmMjAyMDIwMjAxYjFmMjAyMDIwMjAxYjA2MTQxNTBkMWYyMDIwMjAyMDFiMWYyMDIwMjAyMDIwMTkxOTE5MTkyMDIwMjAyMDIwMWIxZTFkMWQxZDFkMWQxZDFkMWQxZDFkMWQxZDFkMWQxYzAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAyMjIyMDAwMDIyMjIwMDAwMjIyMjAwMDAyMjIyMDAwMDIwMDIwMDAwMjAwMjAwMDAyMDAyMjAwMjIwMDIwMDAwMjAwMjIwMDIyMDAyMDAwMDAwMDAyMDAyMDAwMDAwMDAwMDAwMjIyMjAwMDAwMDAwMDAwMDIyMjIwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMA==",
+        "dataEncoding": "base64",
+        "namespace": "myTiles.",
+        "mimeType": "application/mkcd-tilemap",
+        "displayName": "level",
+        "tileset": [
+            "myTiles.transparency16",
+            "sprites.dungeon.greenInnerNorthWest",
+            "sprites.dungeon.greenOuterNorthWest",
+            "sprites.dungeon.greenOuterNorth0",
+            "sprites.dungeon.greenOuterNorthEast",
+            "sprites.dungeon.greenOuterSouthWest",
+            "sprites.dungeon.greenOuterSouthEast",
+            "sprites.dungeon.greenInnerNorthEast",
+            "sprites.dungeon.greenOuterEast1",
+            "sprites.dungeon.greenOuterWest1",
+            "sprites.dungeon.purpleOuterNorthWest",
+            "sprites.dungeon.purpleOuterNorthEast",
+            "sprites.dungeon.purpleOuterNorth0",
+            "sprites.dungeon.purpleOuterSouthWest",
+            "sprites.dungeon.purpleOuterSouthEast",
+            "sprites.dungeon.purpleInnerSouthWest",
+            "sprites.dungeon.purpleInnerNorthWest",
+            "sprites.dungeon.purpleInnerNorthEast",
+            "sprites.dungeon.purpleOuterWest1",
+            "sprites.dungeon.purpleOuterEast1",
+            "sprites.dungeon.greenOuterSouth1",
+            "sprites.dungeon.purpleOuterSouth1",
+            "sprites.dungeon.greenInnerSouthEast",
+            "sprites.dungeon.purpleOuterEast0",
+            "sprites.dungeon.darkGroundNorthWest0",
+            "sprites.dungeon.darkGroundNorth",
+            "sprites.dungeon.darkGroundNorthEast0",
+            "sprites.dungeon.darkGroundEast",
+            "sprites.dungeon.darkGroundSouthEast0",
+            "sprites.dungeon.darkGroundSouth",
+            "sprites.dungeon.darkGroundSouthWest0",
+            "sprites.dungeon.darkGroundWest",
+            "sprites.dungeon.darkGroundCenter"
+        ]
+    }
+}
