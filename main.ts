@@ -8,6 +8,8 @@ let dataChips: Sprite[] = []
 let enemies: Sprite[] = []
 let difficulty: number = 1
 let points: number = null
+let x: number = null
+let y: number = null
 
 // ===================== FUNCTIONS ===================== \\ 
 function createPlayerSprite(x: number, y: number) {
@@ -24,6 +26,7 @@ function createPlayerSprite(x: number, y: number) {
     player.setPosition(x, y)
     controller.moveSprite(player)
     player.setStayInScreen(true)
+    scene.cameraFollowSprite(player)
     animation.runImageAnimation(player, [img`
         . . f f f f . . 
         . f 2 2 2 2 f . 
@@ -36,8 +39,8 @@ function createPlayerSprite(x: number, y: number) {
     `, img`
         . . f f f f . . 
         . f 2 2 2 2 f . 
-        f 2 2 2 f 2 2 f 
-        f 2 f 2 2 2 f 2 
+        f 2 2 2 2 2 2 f 
+        f 2 2 2 2 2 2 f 
         f 2 2 2 2 2 2 f 
         f 2 2 2 2 2 2 f 
         . f 2 2 2 2 f . 
@@ -71,7 +74,7 @@ function spawnEnemies(count: number) {
 
             if (distanceBetween(enemy, player) > SAFE_SPAWN_DISTANCE) {
                 safe = true
-                enemy.setVelocity(20 + difficulty * 10, 20 + difficulty * 10)
+                enemy.setVelocity(20 + difficulty * 20, 20 + difficulty * 20)
                 enemy.setBounceOnWall(true)
                 enemies.push(enemy)
             } else {
@@ -95,7 +98,24 @@ function spawnChips(num: number) {
             . b 9 9 9 9 b . 
             . . b b b b . . 
         `, SpriteKind.Food)
-        chip.setPosition(randint(20, 140), randint(20, 100))
+        do {
+            x = randint(6, 250)
+            y = randint(6, 180)
+        } while ((x >= 21 && x <= 99) && (y >= 27 && y <= 115))
+        do {
+            x = randint(6, 250)
+            y = randint(6, 180)
+        } while ((x >= 156 && x <= 229) && (y >= 27 && y <= 115))
+        do {
+            x = randint(6, 250)
+            y = randint(6, 180)
+        } while ((x >= 91 && x <= 165) && (y >= 75 && y <= 165))
+        
+        // chip.setPosition(165, 165)
+        // // top y = 75
+        // // bottom y = 165
+        // // left x = 91
+        // // right x = 165
         dataChips.push(chip)
     }
 }
@@ -107,6 +127,11 @@ function allChipsCollected(): boolean {
 function selectDifficulty() {
     difficulty = game.askForNumber("Difficulty (1-5)?", 1)
     switch (difficulty) {
+        case 0:
+            difficulty = 0
+            points = 0
+            game.splash("Collect orbs to move up to higher levels")
+            break
         case 1:
             difficulty = 1
             points = 10
@@ -140,10 +165,10 @@ function selectDifficulty() {
 }
 
 function startLevel() {
-    scene.setBackgroundColor(8)
+    tiles.setTilemap(tilemap`level`)
     spawnChips(MAX_CHIPS)
     spawnEnemies(difficulty + 1)
-    // music.playMelody("C5 B A G A B C5 C5 ", 120)
+    // music.playMelody("C D E F G A B C5", 120)
 }
 
 // ===================== EVENT HANDLERS ===================== \\ 
@@ -166,5 +191,5 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (player, enemy) 
 
 // ===================== GAME START ===================== \\ 
 selectDifficulty()
-createPlayerSprite(80, 60)
+createPlayerSprite(120, 60)
 startLevel()
