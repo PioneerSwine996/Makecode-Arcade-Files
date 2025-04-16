@@ -98,6 +98,9 @@ function spawnChips(num: number) {
             . b 9 9 9 9 b . 
             . . b b b b . . 
         `, SpriteKind.Food)
+        x = randint(6, 250)
+        y = randint(6, 180)
+        chip.setPosition(x, y)
         do {
             x = randint(6, 250)
             y = randint(6, 180)
@@ -110,6 +113,7 @@ function spawnChips(num: number) {
             x = randint(6, 250)
             y = randint(6, 180)
         } while ((x >= 91 && x <= 165) && (y >= 75 && y <= 165))
+            chip.setPosition(x, y)
         
         // chip.setPosition(165, 165)
         // // top y = 75
@@ -188,6 +192,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (player, chip) {
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (player, enemy) {
     game.over(false, effects.melt)
 })
+
 
 // ===================== GAME START ===================== \\ 
 selectDifficulty()

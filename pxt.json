@@ -10,7 +10,8 @@
         "arcade"
     ],
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "chords": "github:shiven121s/chords#master"
     },
     "testDependencies": {}
 }
