@@ -88,33 +88,18 @@ function spawnEnemies(count: number) {
 function spawnChips(num: number) {
     dataChips = []
     for (let i = 0; i < num; i++) {
-        let chip = sprites.create(img`
-            . . b b b b . . 
-            . b 9 9 9 9 b . 
-            b 9 9 9 9 9 9 b 
-            b 9 9 9 9 9 9 b 
-            b 9 9 9 9 9 9 b 
-            b 9 9 9 9 9 9 b 
-            . b 9 9 9 9 b . 
-            . . b b b b . . 
-        `, SpriteKind.Food)
+        let chip = sprites.create(sprites.builtin.coin0, SpriteKind.Food)
+        animation.runImageAnimation(
+            chip,
+            assets.animation`myAnim`,
+            200,
+            true
+        )
         x = randint(6, 250)
         y = randint(6, 180)
-        chip.setPosition(x, y)
-        do {
-            x = randint(6, 250)
-            y = randint(6, 180)
-        } while ((x >= 21 && x <= 99) && (y >= 27 && y <= 115))
-        do {
-            x = randint(6, 250)
-            y = randint(6, 180)
-        } while ((x >= 156 && x <= 229) && (y >= 27 && y <= 115))
-        do {
-            x = randint(6, 250)
-            y = randint(6, 180)
-        } while ((x >= 91 && x <= 165) && (y >= 75 && y <= 165))
-            chip.setPosition(x, y)
-        
+        tiles.placeOnRandomTile(chip, sprites.dungeon.darkGroundCenter)
+
+
         // chip.setPosition(165, 165)
         // // top y = 75
         // // bottom y = 165
@@ -133,7 +118,7 @@ function selectDifficulty() {
     switch (difficulty) {
         case 0:
             difficulty = 0
-            points = 0
+            points = 10
             game.splash("Collect orbs to move up to higher levels")
             break
         case 1:
@@ -143,28 +128,28 @@ function selectDifficulty() {
             break
         case 2:
             difficulty = 2
-            points = 20
+            points = 10
             game.splash("Medium Mode")
             break
         case 3:
             difficulty = 3
-            points = 30
+            points = 10
             game.splash("Hard Mode")
             break
         case 4:
             difficulty = 4
-            points = 40
+            points = 10
             game.splash("Insane Mode")
             break
         case 5:
             difficulty = 5
-            points = 50
+            points = 10
             game.splash("Nightmare Mode")
             break
         default:
-            difficulty = 1
+            difficulty = 0
             points = 10
-            game.splash("Invalid input Easy Mode set.")
+            game.splash("Invalid input. Tutorial Started.")
     }
 }
 
@@ -172,7 +157,6 @@ function startLevel() {
     tiles.setTilemap(tilemap`level`)
     spawnChips(MAX_CHIPS)
     spawnEnemies(difficulty + 1)
-    // music.playMelody("C D E F G A B C5", 120)
 }
 
 // ===================== EVENT HANDLERS ===================== \\ 
@@ -180,7 +164,7 @@ function startLevel() {
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (player, chip) {
     chip.destroy()
     dataChips.removeElement(chip)
-    info.changeScoreBy(points)
+    info.changeScoreBy(points * difficulty)
 
     if (allChipsCollected()) {
         difficulty += 1
