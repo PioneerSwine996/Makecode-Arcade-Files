@@ -10,6 +10,8 @@ let difficulty: number = 1
 let points: number = null
 let x: number = null
 let y: number = null
+let PlayerXSpeed: number = 100
+let PlayerYSpeed: number = 100
 
 // ===================== FUNCTIONS ===================== \\ 
 function createPlayerSprite(x: number, y: number) {
@@ -24,7 +26,17 @@ function createPlayerSprite(x: number, y: number) {
         . . f f f f . . 
     `, SpriteKind.Player)
     player.setPosition(x, y)
-    controller.moveSprite(player)
+    controller.moveSprite(player, PlayerXSpeed, PlayerYSpeed)
+    controller.B.onEvent(ControllerButtonEvent.Pressed, function() {
+        PlayerXSpeed = 150
+        PlayerYSpeed = 150
+        controller.moveSprite(player, PlayerXSpeed, PlayerYSpeed)
+    })
+    controller.B.onEvent(ControllerButtonEvent.Released, function () {
+        PlayerXSpeed = 100
+        PlayerYSpeed = 100
+        controller.moveSprite(player, PlayerXSpeed, PlayerYSpeed)
+    })
     player.setStayInScreen(true)
     scene.cameraFollowSprite(player)
     animation.runImageAnimation(player, [img`
@@ -166,6 +178,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (player, chip) {
     dataChips.removeElement(chip)
     info.changeScoreBy(points * difficulty)
 
+    music.playMelody("E6:1 G6:3", 200)
+
     if (allChipsCollected()) {
         difficulty += 1
         game.splash("Level Up!")
@@ -176,6 +190,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (player, chip) {
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (player, enemy) {
     game.over(false, effects.melt)
 })
+
 
 
 // ===================== GAME START ===================== \\ 
