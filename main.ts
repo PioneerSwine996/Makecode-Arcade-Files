@@ -1,6 +1,6 @@
 let player: Sprite = null;
 let projectile: Sprite = null;
-let enemy: Sprite = null;
+let enemy: sprites.ExtendableSprite = null;
 
 player = sprites.create(assets.image`myImage`, SpriteKind.Player);
 player.x = 120
@@ -9,7 +9,7 @@ controller.moveSprite(player);
 player.setFlag(SpriteFlag.StayInScreen, true);
 
 for (let i = 8; i < 160; i += 16){
-    enemy = sprites.create(assets.image`myImage1`, SpriteKind.Enemy);
+    enemy = new sprites.ExtendableSprite(assets.image`myImage1`, SpriteKind.Enemy) //sprites.create(assets.image`myImage1`, SpriteKind.Enemy);
     enemy.x = i;
     enemy.y = 8
 }
