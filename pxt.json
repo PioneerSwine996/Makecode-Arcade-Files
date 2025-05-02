@@ -8,7 +8,8 @@
         "arcade"
     ],
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "status-bar": "github:jwunderl/pxt-status-bar#v0.4.2"
     },
     "testDependencies": {}
 }
