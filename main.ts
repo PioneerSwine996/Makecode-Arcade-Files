@@ -4,7 +4,7 @@ namespace SpriteKind {
 }
 
 // ================== Constants ==================
-const PLAYER_SPEED = 100
+const PLAYER_SPEED = 125
 const PLAYER_PROJECTILE_SPEED = -100
 const ENEMY_PROJECTILE_SPEED = 50
 const ENEMY_SPAWN_INTERVAL = 1500
@@ -30,7 +30,7 @@ class PlayerShip extends sprites.ExtendableSprite {
             . . . 5 5 5 5 5 . . . .
             . . . . 5 . 5 . . . . .
         `, SpriteKind.Player)
-        this.setPosition(80, 100)
+        this.setPosition(this.x, screen.height - this.height / 2)
         controller.moveSprite(this, PLAYER_SPEED, 0)
         this.setStayInScreen(true)
         this.health = MAX_HEALTH
@@ -38,7 +38,7 @@ class PlayerShip extends sprites.ExtendableSprite {
 
     shoot() {
         let projectile = sprites.createProjectileFromSprite(
-            img`
+            img `
                 . . 2 . .
                 . 2 2 2 .
                 . . 2 . .
@@ -68,9 +68,11 @@ class PlayerShip extends sprites.ExtendableSprite {
 
 class EnemyShip extends sprites.ExtendableSprite {
     speed: number
+    cooldown: number
+    hasHitBottom: boolean 
 
     constructor(x: number, y: number, kind: number) {
-        let spriteImage: Image = kind == 0 ? img`
+        let spriteImageEnemy: Image = kind == 0 ? img`
             . . . c c c . . .
             . c c d d d c c .
             c d d d d d d d c
@@ -84,20 +86,31 @@ class EnemyShip extends sprites.ExtendableSprite {
             . 8 f f f 8 .
             . . 8 8 8 . .
         `
-        super(img, SpriteKind.Enemy)
+        super(spriteImageEnemy, SpriteKind.Enemy)
         this.setPosition(x, y)
         this.speed = 10 + wave * 2
         this.vy = this.speed
     }
-
-    update() {
-        if (Math.percentChance(5 + wave)) {
-            this.shoot()
+    
+    update(dt: number) {
+        if (this.cooldown > 0) {
+            this.cooldown--
+        } else {
+            if (Math.percentChance(5 + wave)) {
+                this.shoot()
+            }
+            this.cooldown = Math.randomRange(20, 40)
         }
-        if (this.y > 110) {
-            game.over(false)
+    
+        if (!this.hasHitBottom && this.y > screen.height - this.height / 2) {
+            this.hasHitBottom = true
+        
+            // if (this.kind = () => SpriteKind.Enemy) {
+                player.takeDamage()
+            // }
+            this.destroy(effects.disintegrate, 100)
         }
-    }
+     }
 
     shoot() {
         let proj = sprites.createProjectileFromSprite(
@@ -166,14 +179,14 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (projectile,
     (enemy as EnemyShip).onDestroy()
 })
 
-sprites.onOverlap(SpriteKind.EnemyProjectile, SpriteKind.Player, function (proj, plyr) {
+sprites.onOverlap(SpriteKind.EnemyProjectile, SpriteKind.Player, function (proj, plyr: PlayerShip) {
     proj.destroy();
-    (plyr as PlayerShip).takeDamage()
+    plyr.takeDamage()
 })
 
-sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (food, plyr) {
+sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (food, plyr: PlayerShip) {
     food.destroy();
-    (plyr as PlayerShip).heal()
+    plyr.heal()
 })
 
 // ================== Main ==================
@@ -183,12 +196,20 @@ info.setScore(0)
 
 game.onUpdateInterval(ENEMY_SPAWN_INTERVAL, function () {
     for (let sprite of sprites.allOfKind(SpriteKind.Enemy)) {
-        (sprite as EnemyShip).update()
+        (sprite as EnemyShip).update(10)
     }
 })
 
 game.onUpdateInterval(WAVE_INTERVAL, function () {
     spawnEnemyWave()
+})
+
+game.onUpdate(function () {
+    for (let food of sprites.allOfKind(SpriteKind.Food)) {
+        if (food.y > screen.height) {
+            food.destroy()
+        }
+    }
 })
 
 spawnEnemyWave()
