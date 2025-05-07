@@ -210,9 +210,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     player.shoot()
 })
 
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (projectile, enemy) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (projectile, enemy:EnemyShip) {
     projectile.destroy()
     enemy.destroy(effects.fire, 100)
+    enemyArray.removeElement(enemy)
     info.changeScoreBy(1);
     (enemy as EnemyShip).onDestroy()
 })
