@@ -15,6 +15,7 @@ const MAX_HEALTH = 5
 // ================== Globals ==================
 let player: PlayerShip = null
 let wave: number = 1
+let enemyArray: EnemyShip[] = null
 
 // ================== Classes ==================
 
@@ -144,13 +145,50 @@ class EnemyShip extends sprites.ExtendableSprite {
 // ================== Functions ==================
 
 function spawnEnemyWave() {
-    for (let i = 0; i < 5 + wave; i++) {
-        let x = Math.randomRange(20, 140)
-        let y = Math.randomRange(0, 10)
-        let type = Math.percentChance(20) ? 1 : 0
-        let enemy = new EnemyShip(x, y, type)
+    // for (let i = 0; i < 5 + wave; i++) {
+    //     let x = Math.randomRange(20, 140)
+    //     let y = Math.randomRange(0, 10)
+    //     let type = Math.percentChance(20) ? 1 : 0
+    //     let enemy = new EnemyShip(x, y, type)
+    // }
+    // wave++
+    let out_of_screen = false
+    let type = Math.percentChance(20) ? 1 : 0
+for (let i = 8; i < 56; i += 16) {
+    for (let j = 8; j < 144; j += 16) {
+        let enemy = new EnemyShip(j, i, type)
+        // #9
+        // #10
+        enemy.setVelocity(10, 0)
+        // #11
+        enemyArray.push(enemy)
+        // #12
+        game.onUpdate(function () {
+            out_of_screen = false
+            for (let h = 0; h < enemyArray.length; h++) {
+                // #14
+                if (enemyArray[h].x > 160) {
+                    out_of_screen = true
+                    enemy.setVelocity(-10, 0)
+                } else if (enemyArray[h].x  < 0) {
+                    out_of_screen = true
+                    enemy.setVelocity(10, 0)
+                } else {
+                    out_of_screen = false
+                }
+                // #15
+                if (out_of_screen == true){
+                    enemy.y += 0.5
+                }
+                // #20
+                if (enemyArray[h].y > 114){
+                    game.gameOver(true)
+                }
+            }
+
+        })
     }
-    wave++
+}
     info.setScore(info.score() + 10)
 }
 
