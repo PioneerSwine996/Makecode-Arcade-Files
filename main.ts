@@ -15,7 +15,7 @@ const MAX_HEALTH = 5
 // ================== Globals ==================
 let player: PlayerShip = null
 let wave: number = 1
-let enemyArray: EnemyShip[] = null
+let enemyArray: EnemyShip[] = []
 
 // ================== Classes ==================
 
@@ -232,14 +232,18 @@ sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (food, plyr: Play
 player = new PlayerShip()
 info.setScore(0)
 
-game.onUpdateInterval(ENEMY_SPAWN_INTERVAL, function () {
-    for (let sprite of sprites.allOfKind(SpriteKind.Enemy)) {
-        (sprite as EnemyShip).update(10)
+game.onUpdate(function () {
+    if (enemyArray.length <= 0) {
+        for (let sprite of sprites.allOfKind(SpriteKind.Enemy)) {
+            (sprite as EnemyShip).update(10)
+        }
     }
 })
 
-game.onUpdateInterval(WAVE_INTERVAL, function () {
-    spawnEnemyWave()
+game.onUpdate(function () {
+    if (enemyArray.length <= 0) {
+        spawnEnemyWave()
+    }
 })
 
 game.onUpdate(function () {
