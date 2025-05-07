@@ -9,7 +9,7 @@ const PLAYER_PROJECTILE_SPEED = -100
 const ENEMY_PROJECTILE_SPEED = 50
 const ENEMY_SPAWN_INTERVAL = 1500
 const POWERUP_DROP_RATE = 0.3
-const WAVE_INTERVAL = 15000
+const WAVE_INTERVAL = 10000
 const MAX_HEALTH = 5
 
 // ================== Globals ==================
