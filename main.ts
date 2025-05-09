@@ -1,8 +1,9 @@
+// #9
 // ================== SpriteKind Extension ==================
 namespace SpriteKind {
     export const EnemyProjectile = SpriteKind.create()
 }
-
+// #10
 // ================== Constants ==================
 const PLAYER_SPEED = 125
 const PLAYER_PROJECTILE_SPEED = -100
@@ -11,14 +12,16 @@ const ENEMY_SPAWN_INTERVAL = 1500
 const POWERUP_DROP_RATE = 0.3
 const WAVE_INTERVAL = 10000
 const MAX_HEALTH = 5
-
+// #11
 // ================== Globals ==================
 let player: PlayerShip = null
 let wave: number = 1
 let enemyArray: EnemyShip[] = []
-
+// #12
 // ================== Classes ==================
-
+// #1
+// #2
+// #3
 class PlayerShip extends sprites.ExtendableSprite {
     health: number
 
@@ -66,7 +69,10 @@ class PlayerShip extends sprites.ExtendableSprite {
         }
     }
 }
-
+// #5
+// #6
+// #7
+// #8
 class EnemyShip extends sprites.ExtendableSprite {
     speed: number
     cooldown: number
@@ -141,7 +147,7 @@ class EnemyShip extends sprites.ExtendableSprite {
         }
     }
 }
-
+// #13
 // ================== Functions ==================
 
 function spawnEnemyWave() {
@@ -157,16 +163,11 @@ function spawnEnemyWave() {
 for (let i = 8; i < 56; i += 16) {
     for (let j = 8; j < 144; j += 16) {
         let enemy = new EnemyShip(j, i, type)
-        // #9
-        // #10
         enemy.setVelocity(10, 0)
-        // #11
         enemyArray.push(enemy)
-        // #12
         game.onUpdate(function () {
             out_of_screen = false
             for (let h = 0; h < enemyArray.length; h++) {
-                // #14
                 if (enemyArray[h].x > 160) {
                     out_of_screen = true
                     enemy.setVelocity(-10, 0)
@@ -176,11 +177,11 @@ for (let i = 8; i < 56; i += 16) {
                 } else {
                     out_of_screen = false
                 }
-                // #15
+
                 if (out_of_screen == true){
                     enemy.y += 0.5
                 }
-                // #20
+
                 if (enemyArray[h].y > 114){
                     game.gameOver(true)
                 }
@@ -203,7 +204,7 @@ statusbar.setLabel("HP")
 statusbar.max = MAX_HEALTH * 20
 statusbar.value = MAX_HEALTH * 20
 statusbar.setPosition(20, 10)
-
+// #14
 // ================== Event Handlers ==================
 
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -227,9 +228,9 @@ sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (food, plyr: Play
     food.destroy();
     plyr.heal()
 })
-
+// #15
 // ================== Main ==================
-
+// #4
 player = new PlayerShip()
 info.setScore(0)
 
