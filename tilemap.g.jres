@@ -1,0 +1,30 @@
+{
+    "myTiles.transparency16": {
+        "id": "myTiles.transparency16",
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "dataEncoding": "base64",
+        "namespace": "myTiles.",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true
+    },
+    "level1": {
+        "id": "level1",
+        "data": "MTAxMDAwMTAwMDAxMDIwMjAyMDIwMjAyMDIwMjAyMDIwMjAyMDIwMjAzMDgwOTA5MDkwOTA5MDkwOTA5MDkwOTA5MDkwOTA5MDQwODA5MDkwOTA5MDkwOTA5MDkwOTA5MDkwOTA5MDkwNDA4MDkwOTA5MDkwOTA5MDkwOTA5MDkwOTA5MDkwOTA0MDgwOTA5MDkwOTA5MDkwOTA5MDkwOTA5MDkwOTA5MDQwODA5MDkwOTA5MDkwOTA5MDkwOTA5MDkwOTA5MDkwNDA4MDkwOTA5MDkwOTA5MDkwOTA5MDkwOTA5MDkwOTA0MDgwOTA5MDkwOTA5MDkwOTA5MDkwOTA5MDkwOTA5MDQwODA5MDkwOTA5MDkwOTA5MDkwOTA5MDkwOTA5MDkwNDA4MDkwOTA5MDkwOTA5MDkwOTA5MDkwOTA5MDkwOTA0MDgwOTA5MDkwOTA5MDkwOTA5MDkwOTA5MDkwOTA5MDQwODA5MDkwOTA5MDkwOTA5MDkwOTA5MDkwOTA5MDkwNDA4MDkwOTA5MDkwOTA5MDkwOTA5MDkwOTA5MDkwOTA0MDgwOTA5MDkwOTA5MDkwOTA5MDkwOTA5MDkwOTA5MDQwODA5MDkwOTA5MDkwOTA5MDkwOTA5MDkwOTA5MDkwNDA3MDYwNjA2MDYwNjA2MDYwNjA2MDYwNjA2MDYwNjA1MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMA==",
+        "dataEncoding": "base64",
+        "namespace": "myTiles.",
+        "mimeType": "application/mkcd-tilemap",
+        "displayName": "level",
+        "tileset": [
+            "myTiles.transparency16",
+            "sprites.dungeon.darkGroundNorthWest0",
+            "sprites.dungeon.darkGroundNorth",
+            "sprites.dungeon.darkGroundNorthEast0",
+            "sprites.dungeon.darkGroundEast",
+            "sprites.dungeon.darkGroundSouthEast0",
+            "sprites.dungeon.darkGroundSouth",
+            "sprites.dungeon.darkGroundSouthWest0",
+            "sprites.dungeon.darkGroundWest",
+            "sprites.dungeon.darkGroundCenter"
+        ]
+    }
+}
