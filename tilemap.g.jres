@@ -1,0 +1,61 @@
+{
+    "myTiles.transparency16": {
+        "id": "myTiles.transparency16",
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "dataEncoding": "base64",
+        "namespace": "myTiles.",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true
+    },
+    "myTiles.tile1": {
+        "id": "myTiles.tile1",
+        "data": "hwQQABAAAAAAAAAAzMwAAAAAAMzLywwAAAAA3Lu8zAAAAMzcvbzMAMDMu7zdzMwAvN27y93LzADc3d2728vMDNvd3bvby7wM293du9u7vMvb3d2929u8y7Dd3b3b27zLANvdvb3bvMsA2927vb27DACwu7u7zbsMAAAA293MywAAAACwy7wLAA==",
+        "dataEncoding": "base64",
+        "namespace": "myTiles.",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "myTile"
+    },
+    "level1": {
+        "id": "level1",
+        "data": "MTAxMDAwMTAwMDA3MDMwMzAzMDMwMzAzMDMwMzAzMDMwMzAzMDMwMzA4MDIwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDQwMjAxMDEwMTAxMDEwMTAxMDEwYTAxMDEwMTAxMDEwNDAyMDEwMTAxMDEwYTAxMDEwMTAxMDEwMTAxMDEwMTA0MDIwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwYTAxMDQwMjAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwNDAyMDEwMTBhMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTA0MDIwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwYTAxMDQwMjAxMDEwMTAxMDEwMTAxMDEwYTAxMDEwMTAxMDEwNDAyMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTA0MDIwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDQwMjAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwNDAyMDEwMTAxMGEwMTAxMDEwMTAxMDEwYTAxMDEwMTA0MDIwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDQwMjAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwNDA2MDUwNTA1MDUwNTA1MDUwNTA1MDUwNTA1MDUwNTA5MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMA==",
+        "dataEncoding": "base64",
+        "namespace": "myTiles.",
+        "mimeType": "application/mkcd-tilemap",
+        "displayName": "level",
+        "tileset": [
+            "myTiles.transparency16",
+            "sprites.dungeon.darkGroundCenter",
+            "sprites.dungeon.darkGroundWest",
+            "sprites.dungeon.darkGroundNorth",
+            "sprites.dungeon.darkGroundEast",
+            "sprites.dungeon.darkGroundSouth",
+            "sprites.dungeon.darkGroundSouthWest0",
+            "sprites.dungeon.darkGroundNorthWest0",
+            "sprites.dungeon.darkGroundNorthEast0",
+            "sprites.dungeon.darkGroundSouthEast0",
+            "myTiles.tile1"
+        ]
+    },
+    "level2": {
+        "id": "level2",
+        "data": "MTAxMDAwMTAwMDA5MGEwNjA4MGEwYTBhMDkwOTA5MDkwOTA5MDkwOTA5MDkwYTA2MDEwNTA0MGEwOTA5MDkwOTA5MDkwOTA5MDkwOTBhMDMwNzAxMDgwYTA5MDkwOTA5MDkwOTA5MDkwOTA5MGEwYTBhMDYwODBhMDkwOTA5MDkwOTA5MDkwOTA5MDkwOTA5MGEwNjA4MGEwOTA5MDkwOTA5MDkwOTA5MDkwOTA5MDkwYTA2MDgwYTA5MDkwOTA5MDkwOTA5MDkwOTA5MDkwOTBhMDYwODBhMGEwYTBhMGEwYTA5MDkwOTA5MDkwOTA5MGEwNjAxMDUwNTA1MDUwNDBhMDkwOTA5MDkwOTA5MDkwYTAzMDcwNzA3MDcwMTA4MGEwOTA5MDkwOTA5MDkwOTBhMGEwYTBhMGEwYTA2MDgwYTA5MDkwOTA5MDkwOTA5MDkwOTA5MDkwOTBhMDYwODBhMDkwOTA5MDkwOTA5MDkwOTA5MDkwOTA5MGEwNjA4MGEwOTA5MDkwOTA5MDkwOTA5MDkwOTA5MDkwYTA2MDgwYTBhMGEwOTA5MDkwOTA5MDkwOTA5MDkwOTBhMDYwMTA1MDUwNDA5MDkwOTA5MDkwOTA5MDkwOTA5MGEwMzA3MDcwNzAyMDkwOTA5MDkwOTA5MDkwOTA5MDkwYTBhMGEwYTBhMGEwOTA5MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMA==",
+        "dataEncoding": "base64",
+        "namespace": "myTiles.",
+        "mimeType": "application/mkcd-tilemap",
+        "displayName": "level0",
+        "tileset": [
+            "myTiles.transparency16",
+            "sprites.castle.tilePath5",
+            "sprites.castle.tilePath9",
+            "sprites.castle.tilePath7",
+            "sprites.castle.tilePath3",
+            "sprites.castle.tilePath2",
+            "sprites.castle.tilePath4",
+            "sprites.castle.tilePath8",
+            "sprites.castle.tilePath6",
+            "sprites.castle.tileGrass1",
+            "sprites.castle.tileGrass2"
+        ]
+    }
+}
