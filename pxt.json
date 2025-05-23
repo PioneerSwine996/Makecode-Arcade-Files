@@ -1,14 +1,25 @@
 {
     "name": "template",
     "version": "0.0.0",
+    "dependencies": {
+        "device": "*",
+        "color-coded-tilemap": "*"
+    },
     "files": [
-        "main.ts"
+        "main.ts",
+        "tilemap.g.jres",
+        "tilemap.g.ts",
+        "main.py",
+        "images.g.jres",
+        "images.g.ts"
     ],
+    "testDependencies": {},
+    "targetVersions": {
+        "target": "2.0.56",
+        "targetId": "arcade"
+    },
     "supportedTargets": [
         "arcade"
     ],
-    "dependencies": {
-        "device": "*"
-    },
-    "testDependencies": {}
+    "preferredEditor": "tsprj"
 }
